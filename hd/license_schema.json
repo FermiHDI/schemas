@@ -1,0 +1,108 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermihdi.dev/schemas/hd/license_schema.json",
+  "title": "FermiHDI HD License Schema",
+  "description": "Schema for a FermiHDI HD License File",
+  "type": "object",
+  "properties": {
+    "client": {
+      "description": "A Client object",
+      "type": "object",
+      "properties": {
+        "id": {
+          "description": "A UID unique identifier for the dataset",
+          "type": "string"
+        },
+        "name": {
+          "description": "The name of the client",
+          "type": "string"
+        }
+      }
+    },
+    "licenses": {
+      "description": "A FermiHDI license object",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The ID for this license",
+            "type": "string"
+          },
+          "licenseType": {
+            "description": "What this license is for",
+            "type": "string",
+            "enum": ["HD"]
+          },
+          "issue_date": {
+            "description": "When was this license issued as a Unix Epoc timestamp (seconds)",
+            "type": "integer"
+          },
+          "expire_date": {
+            "description": "When will this license expire as a Unix Epoc timestamp (seconds)",
+            "type": "integer"
+          },
+          "term": {
+            "description": "When is the length of this license in secconds",
+            "type": "integer"
+          },
+          "elements": {
+            "description": "The elements this license authorizes",
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "elementType": {
+                  "description": "A licensed element",
+                  "type": "string",
+                  "enum": ["HDANY", "HDINGEST", "HDSSC", "HDSN", "HDDP", "HDQP", "HDDMS"]
+                },
+                "count": {
+                  "description": "The number of units this license alows for this element",
+                  "type": "integer"
+                }
+              }
+            }
+          },
+          "dms": {
+            "description": "Informstion about the client's DMS for which this license was issued",
+            "type": "object",
+            "properties":{
+              "id": {
+                "description": "The of ID such as hostname or IP address of the client's DMS for which this license was issued",
+                "type": "string"
+              },
+              "x509": {
+                "description": "The clients DMS x.509 certificate",
+                "type": "string"
+              }
+            }
+          },
+          "nunce": {
+            "description": "A random string genrated by the clients DMS"
+          },
+          "clientSignature": {
+            "description": "The nunce encrypted with the clients DMS public key"
+          },
+          "licenseVerification": {
+            "description": "License verification",
+            "type": "object",
+            "properties": {
+              "hashAlgorithm": {
+                "description": "The hash Algorithm used",
+                "type": "string"
+              },
+              "fermihdiCertID": {
+                "description": "The identifier for the x.509 cert used for the HMAC",
+                "type": "string"
+              },
+              "signature": {
+                "description": "The HMAC of the license encrypted by the FermiHDI HD signing key"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
