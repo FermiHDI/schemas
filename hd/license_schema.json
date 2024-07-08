@@ -25,25 +25,35 @@
       "items": {
         "type": "object",
         "properties": {
-          "id": {
+          "versionNumber": {
+            "description": "The version number of this license",
+            "type": "integer"
+          },
+          "serialNumber": {
             "description": "The ID for this license",
             "type": "string"
           },
           "licenseType": {
             "description": "What this license is for",
             "type": "string",
-            "enum": ["HD"]
+            "enum": [
+              "HD"
+            ]
+          },
+          "term": {
+            "description": "When is the length of this license in seconds",
+            "type": "integer"
           },
           "issue_date": {
-            "description": "When was this license issued as a Unix Epoc timestamp (seconds)",
+            "description": "When was this license issued as a Unix Epoch timestamp (seconds)",
+            "type": "integer"
+          },
+          "validity_date": {
+            "description": "When will this license become valid as a Unix Epoch timestamp (seconds)",
             "type": "integer"
           },
           "expire_date": {
-            "description": "When will this license expire as a Unix Epoc timestamp (seconds)",
-            "type": "integer"
-          },
-          "term": {
-            "description": "When is the length of this license in secconds",
+            "description": "When will this license expire as a Unix Epoch timestamp (seconds)",
             "type": "integer"
           },
           "elements": {
@@ -55,34 +65,44 @@
                 "elementType": {
                   "description": "A licensed element",
                   "type": "string",
-                  "enum": ["HDANY", "HDINGEST", "HDSSC", "HDSN", "HDDP", "HDQP", "HDDMS"]
+                  "enum": [
+                    "HDANY",
+                    "HDINGEST",
+                    "HDSSC",
+                    "HDSN",
+                    "HDDP",
+                    "HDQP",
+                    "HDDMS"
+                  ]
                 },
                 "count": {
-                  "description": "The number of units this license alows for this element",
+                  "description": "The number of units this license allows for this element",
                   "type": "integer"
                 }
               }
             }
           },
           "dms": {
-            "description": "Informstion about the client's DMS for which this license was issued",
+            "description": "Information about the client's DMS for which this license was issued",
             "type": "object",
-            "properties":{
+            "properties": {
               "id": {
                 "description": "The of ID such as hostname or IP address of the client's DMS for which this license was issued",
                 "type": "string"
               },
-              "x509": {
-                "description": "The clients DMS x.509 certificate",
+              "publicKeyAlgorithm": {
+                "description": "The type of the public key for the client's DMS",
+                "type": "string"
+              },
+              "publicKey": {
+                "description": "The public key for the client's DMS",
+                "type": "string"
+              },
+              "keyFingerprint": {
+                "description": "The fingerprint for the client's DMS private key",
                 "type": "string"
               }
             }
-          },
-          "nunce": {
-            "description": "A random string genrated by the clients DMS"
-          },
-          "clientSignature": {
-            "description": "The nunce encrypted with the clients DMS public key"
           },
           "licenseVerification": {
             "description": "License verification",
@@ -92,12 +112,17 @@
                 "description": "The hash Algorithm used",
                 "type": "string"
               },
-              "fermihdiCertID": {
-                "description": "The identifier for the x.509 cert used for the HMAC",
+              "keyFingerprint": {
+                "description": "The fingerprint for the FermiHDI public key",
                 "type": "string"
               },
               "signature": {
-                "description": "The HMAC of the license encrypted by the FermiHDI HD signing key"
+                "description": "The HMAC of the license encrypted by the FermiHDI HD signing key",
+                "type": "string"
+              },
+              "dmsSignature": {
+                "description": "The HMAC signature signed by FermiHDI but using the client's DMS public key, for all elements except the licenseVerification at the same level",
+                "type": "string"
               }
             }
           }
