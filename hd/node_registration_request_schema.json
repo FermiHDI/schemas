@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermihdi.dev/schemas/hd/node_registration_request_schema.json",
+  "title": "FermiHDI HD Node Registration Request",
+  "description": "The JSON Schema for the request a new node must use to register with a DMS",
+  "type": "object",
+  "properties": {
+
+  }
+}

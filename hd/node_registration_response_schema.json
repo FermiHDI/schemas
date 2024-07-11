@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermihdi.dev/schemas/hd/node_registration_response_schema.json",
+  "title": "FermiHDI HD Node successful response",
+  "description": "The JSON Schema for a successful registration for a new node with a DMS",
+  "type": "object",
+  "properties": {
+
+  }
+}

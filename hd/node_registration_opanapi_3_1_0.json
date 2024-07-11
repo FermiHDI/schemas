@@ -1,0 +1,81 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "FermiHDI HD Node Management API",
+    "summary": "API for managing FermiHDI HD nodes",
+    "description": "This API provides endpoints for managing FermiHDI HD nodes, including registration, updating, and deletion.",
+    "termsOfService": "https://fermihdi.dev/products/hd/dms/terms-of-service",
+    "contact": {
+      "name": "FermiHDI HD Support Team",
+      "url": "https://support.fermihdi.com",
+      "email": "support@fermihdi.dev"
+    },
+    "license": {
+      "name": "UNLICENSED"
+    },
+    "version": "0.1.0"
+  },
+  "jsonSchemaDialect": "https://spec.openapis.org/oas/3.1/dialect/base",
+  "servers": [],
+  "paths": {
+    "/management/node/register": {
+      "post": {
+        "summary": "Register a new FermiHDI HD node",
+        "description": "This endpoint registers a new FermiHDI HD Node",
+        "requestBody": {
+          "description": "Node information",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NodeRegistrationRequest"
+              },
+              "example": {}
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Registration successful",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/NodeRegistrationResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [],
+  "components": {
+    "schemas": {
+      "GeneralError": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "NodeRegistrationRequest": {
+        "externalDocs": {
+          "description": "The JSON Schema for the request a new node must use to register with a DMS",
+          "url": "https://fermihdi.dev/schemas/hd/node_registration_request_schema.json"
+        }
+      },
+      "NodeRegistrationResponse": {
+        "externalDocs": {
+          "description": "The JSON Schema for a successful registration for a new node with a DMS",
+          "url": "https://fermihdi.dev/schemas/hd/node_registration_response_schema.json"
+        }
+      }
+    }
+  }
+}
