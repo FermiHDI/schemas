@@ -5,6 +5,9 @@
   "description": "The JSON Schema for a successful registration for a new node with a DMS",
   "type": "object",
   "properties": {
-
+    "x509Certificate": {
+      "description": "A x.509 certificate for the node signed by the DMS with a FermiHDI HD signing key as the Root CA",
+      "type": "string"
+    }
   }
 }

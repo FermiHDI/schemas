@@ -36,9 +36,7 @@
           "licenseType": {
             "description": "What this license is for",
             "type": "string",
-            "enum": [
-              "HD"
-            ]
+            "enum": ["HD"]
           },
           "term": {
             "description": "When is the length of this license in seconds",
