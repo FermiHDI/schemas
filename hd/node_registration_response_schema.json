@@ -5,9 +5,39 @@
   "description": "The JSON Schema for a successful registration for a new node with a DMS",
   "type": "object",
   "properties": {
-    "x509Certificate": {
-      "description": "A x.509 certificate for the node signed by the DMS with a FermiHDI HD signing key as the Root CA",
-      "type": "string"
+    "nodes": {
+      "description": "An array of nodes this host should run",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The unique id of the node",
+            "type": "string"
+          },
+          "name": {
+            "description": "The name of the node",
+            "type": "string"
+          },
+          "nodeType": {
+            "description": "The type of the node",
+            "type": "string",
+            "enum": ["STORAGE", "STORAGE_CLUSTER_CONTROLLER", "INGEST", "DATA_PROCESSOR", "QUERY_PARSER", "QUERY_PARSER_FOUNDATION_NETWORK_GRAPHQL"]
+          },
+          "cmdPort": {
+            "description": "The code port for the node",
+            "type": "string"
+          },
+          "prodPort": {
+            "description": "The production port for the node",
+            "type": "string"
+          },
+          "x509Certificate": {
+            "description": "A x.509 certificate for the node signed by the DMS with a FermiHDI HD signing key as the Root CA",
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }
