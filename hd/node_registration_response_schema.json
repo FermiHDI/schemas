@@ -15,7 +15,7 @@
             "description": "The unique id of the node",
             "type": "string"
           },
-          "name": {
+          "nodeName": {
             "description": "The name of the node",
             "type": "string"
           },
@@ -25,12 +25,23 @@
             "enum": ["STORAGE", "STORAGE_CLUSTER_CONTROLLER", "INGEST", "DATA_PROCESSOR", "QUERY_PARSER", "QUERY_PARSER_FOUNDATION_NETWORK_GRAPHQL"]
           },
           "cmdPort": {
-            "description": "The code port for the node",
+            "description": "The command port for the node",
             "type": "string"
           },
           "prodPort": {
             "description": "The production port for the node",
             "type": "string"
+          },
+          "storage_cluster": {
+            "description": "The storage cluster this node belongs to",
+            "type": "string"
+          },
+          "datasets": {
+            "description": "The production port for the node",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "x509Certificate": {
             "description": "A x.509 certificate for the node signed by the DMS with a FermiHDI HD signing key as the Root CA",
