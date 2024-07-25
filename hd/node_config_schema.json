@@ -1,0 +1,115 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://fermihdi.dev/schemas/hd/dataset_schema.json",
+    "title": "FermiHDI HD Dataset Schema",
+    "description": "The JSON Schema description for a datasets held in a FermiHDI HD system",
+    "type": "object",
+    "properties": {
+      "datasets": {
+        "description": "An Array of dataset descriptions",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "description": "A UID unique identifier for the dataset",
+              "type": "string"
+            },
+            "name": {
+              "description": "The name of the dataset",
+              "type": "string"
+            },
+            "purpose": {
+              "description": "The purpose of the field",
+              "type": "string"
+            },
+            "record_len": {
+              "description": "Records are stored as a concatenate byte arrays, the fields is the number of bytes in a record",
+              "type": "integer"
+            },
+            "fields": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "description": "Fields name",
+                    "type": "string"
+                  },
+                  "type": {
+                    "description": "The type variable of the field",
+                    "type": "string",
+                    "enum": ["uint8", "int8", "uint16", "int16", "uint32", "int32", "uint64", "int64", "uint128", "int128", "uint256", "int256", "float", "double", "boolean", "string"]
+                  },
+                  "purpose": {
+                    "description": "The purpose of the field",
+                    "type": "string"
+                  },
+                  "first_byte_position": {
+                    "description": "The inclusive first index in a record bytearray used by this fields data",
+                    "type": "integer"
+                  },
+                  "last_byte_position": {
+                    "description": "The exclusive last index in a record bytearray used by this fields data, this is needed for strings and is equivalent to a VARCHAR(n) or CHAR(n)",
+                    "type": "integer"
+                  }
+                },
+                "required": ["name", "type", "first_byte_position", "last_byte_position"]
+              },
+              "minItems": 1
+            },
+            "nodes": {
+              "description": "An Array of nodes that service the dataset",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "nodeType": {
+                    "description": "The type of the node",
+                    "type": "string"
+                  },
+                  "id": {
+                    "description": "A UID unique identifier for the node",
+                    "type": "string"
+                  },
+                  "cmd": {
+                    "description": "IP and Port used to connect to the command interface",
+                    "type": "string"
+                  },
+                  "prod": {
+                    "description": "IP and Port used to connect to the production interface",
+                    "type": "string"
+                  },
+                  "storageCluster": {
+                    "description": "The logical storage cluster this node is part of (Only applies to SCC and SN nodes)",
+                    "type": "string"
+                  },
+                  "drives": {
+                    "description": "An Array of drives attached to this node",
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "driveId": {
+                          "description": "The identifier for the drive",
+                          "type": "string"
+                        },
+                        "maxUtilizationPercent": {
+                          "description": "The amount of used space on the drive as a percent of capacity",
+                          "type": "integer"
+                        }
+                      },
+                      "required": ["driveId", "maxUtilizationPercent"]
+                    }
+                  }
+                },
+                "required": ["nodeType", "id", "cmd", "prod"]
+              }
+            }
+          }
+        },
+        "minItems": 1
+      }
+    },
+    "required": ["datasets"]
+  }
