@@ -57,56 +57,73 @@
                 "required": ["name", "type", "first_byte_position", "last_byte_position"]
               },
               "minItems": 1
+            }
+          },
+          "required": ["id", "name", "purpose", "record_len", "fields"]
+        },
+        "minItems": 1
+      },
+      "nodes": {
+        "description": "An Array of nodes that service the dataset",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "nodeType": {
+              "description": "The type of the node",
+              "type": "string"
             },
-            "nodes": {
-              "description": "An Array of nodes that service the dataset",
+            "id": {
+              "description": "A UID unique identifier for the node",
+              "type": "string"
+            },
+            "cmd": {
+              "description": "IP and Port used to connect to the command interface",
+              "type": "string"
+            },
+            "prod": {
+              "description": "IP and Port used to connect to the production interface",
+              "type": "string"
+            },
+            "storageCluster": {
+              "description": "The logical storage cluster this node is part of (Only applies to SCC and SN nodes)",
+              "type": "string"
+            },
+            "drives": {
+              "description": "An Array of drives attached to this node",
               "type": "array",
               "items": {
                 "type": "object",
                 "properties": {
-                  "nodeType": {
-                    "description": "The type of the node",
+                  "driveId": {
+                    "description": "The identifier for the drive",
                     "type": "string"
                   },
-                  "id": {
-                    "description": "A UID unique identifier for the node",
-                    "type": "string"
-                  },
-                  "cmd": {
-                    "description": "IP and Port used to connect to the command interface",
-                    "type": "string"
-                  },
-                  "prod": {
-                    "description": "IP and Port used to connect to the production interface",
-                    "type": "string"
-                  },
-                  "storageCluster": {
-                    "description": "The logical storage cluster this node is part of (Only applies to SCC and SN nodes)",
-                    "type": "string"
-                  },
-                  "drives": {
-                    "description": "An Array of drives attached to this node",
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "driveId": {
-                          "description": "The identifier for the drive",
-                          "type": "string"
-                        },
-                        "maxUtilizationPercent": {
-                          "description": "The amount of used space on the drive as a percent of capacity",
-                          "type": "integer"
-                        }
-                      },
-                      "required": ["driveId", "maxUtilizationPercent"]
-                    }
+                  "maxUtilizationPercent": {
+                    "description": "The amount of used space on the drive as a percent of capacity",
+                    "type": "integer"
                   }
                 },
-                "required": ["nodeType", "id", "cmd", "prod"]
+                "required": ["driveId", "maxUtilizationPercent"]
               }
+            },
+            "datasets": {
+              "description": "An Array of datasets this node serves",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "x509Certificate": {
+              "description": "A x.509 certificate for the node signed by the DMS with a FermiHDI HD signing key as the Root CA",
+              "type": "string"
+            },
+            "hash": {
+              "description": "A hash of the node config data used for tracking updates",
+              "type": "string"
             }
-          }
+          },
+          "required": ["nodeType", "id", "cmd", "prod", "hash"]
         },
         "minItems": 1
       }
