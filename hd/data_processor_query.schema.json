@@ -1,0 +1,172 @@
+{
+  "$id": "https://github.com/FermiHDI/schemas/tree/main/hd/data_processor_query.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FermiHDI HD Data Processor Query Schema",
+  "type": "object",
+  "properties": {
+    "query_id": {
+      "description": "Query ID; uint32",
+      "type": "integer"
+    },
+    "batch_ids": {
+      "description": "Bytearray hex",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 64,
+        "maxLength": 64
+      }
+    },
+    "group_by": {
+      "description": "Arrange identical data into groups",
+      "type": "object",
+      "properties": {
+        "mask": {
+          "description": "Bytearray hex",
+          "type": "string"
+        },
+        "group_by_fields": {
+          "description": "field information",
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "description": "field id uint32 type",
+                "type": "integer"
+              },
+              "name": {
+                "description": "field name",
+                "type": "string"
+              },
+              "starting_index": {
+                "description": "First index (inclusive) in the mask to use; uint32",
+                "type": "integer"
+              },
+              "ending_index": {
+                "description": "Last index (inclusive) in the mask to use; uint32",
+                "type": "integer"
+              },
+              "type": {
+                "description": "Field type in the return record",
+                "type": "string",
+                "enum": [
+                  "uint8",
+                  "int8",
+                  "uint16",
+                  "int16",
+                  "uint32",
+                  "int32",
+                  "uint64",
+                  "int64",
+                  "uint128",
+                  "int128",
+                  "uint256",
+                  "int256",
+                  "float",
+                  "double",
+                  "boolean",
+                  "string"
+                ]
+              },
+              "return_starting_index": {
+                "description": "The first index in the return record this field will use",
+                "type": "int"
+              },
+              "return_ending_index": {
+                "description": "The last index in the return record this field will use",
+                "type": "int"
+              }
+            },
+            "required": [
+              "id",
+              "name",
+              "starting_index",
+              "ending_index",
+              "type",
+              "return_starting_index",
+              "return_ending_index"
+            ]
+          }
+        }
+      },
+      "required": ["mask", "group_by_fields"]
+    },
+    "aggregations": {
+      "description": "Functions to be applied",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "description": "Aggregation function specifications",
+        "properties": {
+          "id": {
+            "description": "",
+            "type": "integer"
+          },
+          "function": {
+            "description": "",
+            "type": "string",
+            "enum": ["min", "max", "avg", "sum", "count"]
+          },
+          "type": {
+            "description": "",
+            "type": "string",
+            "enum": ["uint8", "int8", "int128", "float", "double"]
+          },
+          "return_type": {
+            "description": "",
+            "type": "string",
+            "enum": ["uint8", "int8", "int128", "float", "double"]
+          },
+          "starting_index": {
+            "description": "",
+            "type": "integer"
+          },
+          "ending_index": {
+            "description": "",
+            "type": "integer"
+          },
+          "filter_type": {
+            "description": "",
+            "type": "string",
+            "enum": ["quality", "grater", "less", "none"]
+          },
+          "filter_value": {
+            "description": "integer data type int128",
+            "type": "integer"
+          }
+        },
+        "required": [
+          "id",
+          "function",
+          "type",
+          "return_type",
+          "starting_index",
+          "ending_index",
+          "filter_type",
+          "filter_value"
+        ]
+      }
+    },
+    "return_target": {
+      "description": "IP address",
+      "type": "integer"
+    },
+    "sort_order": {
+      "description": "sorting fild name",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "query_id",
+    "batch_ids",
+    "group_by",
+    "aggregations",
+    "return_target",
+    "sort_order"
+  ]
+}
