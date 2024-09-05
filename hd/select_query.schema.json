@@ -5,7 +5,7 @@
   "type": "object",
   "properties": {
     "query_id": {
-      "description": "Id uint32",
+      "description": "Query ID; uint32",
       "type": "integer"
     },
     "batch_ids": {
