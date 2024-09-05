@@ -1,0 +1,40 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "Select Query",
+    "description": "This API allows to balance queries between storage nodes",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://0.0.0.0:6986",
+      "description": "Default server in SCC"
+    }
+  ],
+  "paths": {
+    "/select": {
+      "post": {
+        "summary": "Select a storage node and resend the query to that node",
+        "description": "Select query",
+        "requestBody": {
+          "description": "Select query type",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "https://github.com/FermiHDI/schemas/tree/main/hd/select_query.schema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "OK"
+          },
+          "default": {
+            "description": "Unexpected error"
+          }
+        }
+      }
+    }
+  }
+}

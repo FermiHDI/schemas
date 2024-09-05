@@ -1,0 +1,49 @@
+{
+  "openapi": "3.0.2",
+  "info": {
+    "title": "FermiHDI Data Processor API",
+    "version": "v1"
+  },
+  "servers": [
+    {
+      "url": "http://0.0.0.0:6986",
+      "description": "Default server in Data processor"
+    }
+  ],
+  "paths": {
+    "/aggregate": {
+      "post": {
+        "summary": "Create Aggregation query in Data Processor node",
+        "description": "Agregagtion query for specifics batches",
+        "requestBody": {
+          "description": "Agragtion query type",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "https://github.com/FermiHDI/schemas/tree/main/hd/data_processor_query.schema.json"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "aggregation query created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "response": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "operationId": "CreateAgg"
+      }
+    }
+  }
+}
