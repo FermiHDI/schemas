@@ -1,0 +1,100 @@
+{
+  "$id": "https://github.com/FermiHDI/schemas/tree/main/hd/select_query.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FermiHDI HD Select Query Schema",
+  "type": "object",
+  "properties": {
+    "query_id": {
+      "description": "Id uint32",
+      "type": "integer"
+    },
+    "batch_ids": {
+      "description": "Bytearray hex",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 64,
+        "maxLength": 64
+      }
+    },
+    "sub_queries": {
+      "description": "Select query",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "equity_mask": {
+            "description": "A hex bytearray used as a mask for equity matches",
+            "type": "string"
+          },
+          "equity_match": {
+            "description": "A hex bytearray used for matching in equity matches",
+            "type": "string"
+          },
+          "greater_mask": {
+            "description": "A hex bytearray used as a mask for grater matches",
+            "type": "string"
+          },
+          "greater_match": {
+            "description": "A hex bytearray used for matching in grater matches",
+            "type": "string"
+          },
+          "less_mask": {
+            "description": "A hex bytearray used as a mask for less matches",
+            "type": "string"
+          },
+          "less_match": {
+            "description": "A hex bytearray used for matching in less matches",
+            "type": "string"
+          },
+          "groups": {
+            "description": "Matching groups",
+            "type": "array",
+            "minItems": 0,
+            "items": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "description": "Select type",
+                  "type": "string",
+                  "enum": ["equality", "grater", "less"]
+                },
+                "signed": {
+                  "description": "If integers, is it signed; 0 = unsigned, 1 = signed",
+                  "type": "integer"
+                },
+                "starting_index": {
+                  "description": "index uint32 datatype",
+                  "type": "integer"
+                },
+                "ending_index": {
+                  "description": "index uint32 datatype",
+                  "type": "integer"
+                }
+              },
+              "required": ["type", "signed", "starting_index", "ending_index"]
+            }
+          }
+        },
+        "required": [
+          "equity_mask",
+          "equity_match",
+          "greater_mask",
+          "greater_match",
+          "less_mask",
+          "less_match",
+          "groups"
+        ]
+      }
+    },
+    "targer_dps": {
+      "description": "Data Processors IPs",
+      "type": "array",
+      "items": {
+        "type": "integer"
+      }
+    }
+  },
+  "required": ["query_id", "batch_ids", "sub_queries", "targer_dps"]
+}
