@@ -6,12 +6,46 @@
   "type": "object",
   "properties": {
     "dms": {
-      "description": "The addresses for the DMS service nodes",
-      "type": "array",
-      "items": {
-        "discription": "The address for a DMS node",
-        "type": "string"
+      "description": "DMS Configurations",
+      "type": "object",
+      "properties": {
+        "registration": {
+          "type": "array",
+          "items": {
+            "discription": "An address for the DMS Node",
+            "type": "object",
+            "properties": {
+              "address": {
+                "discription": "The address for the DMS node",
+                "type": "string"
+              },
+              "port": {
+                "discription": "The TCP Port for the DMS node",
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "otel": {
+          "type": "array",
+          "items": {
+            "discription": "An address for a OTEL Collector Node",
+            "type": "object",
+            "properties": {
+              "address": {
+                "discription": "The address for the OTEL Collector node",
+                "type": "string"
+              },
+              "port": {
+                "discription": "The TCP Port for the OTEL Collector node",
+                "type": "integer"
+              }
+            }
+          }
+        }
       }
+        }
+      
     },
     "nodes": {
       "description": "An array of nodes running on this host",
