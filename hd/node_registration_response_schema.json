@@ -5,6 +5,14 @@
   "description": "The JSON Schema for a successful registration for a new node with a DMS",
   "type": "object",
   "properties": {
+    "dms": {
+      "description": "The addresses for the DMS service nodes",
+      "type": "array",
+      "items": {
+        "discription": "The address for a DMS node",
+        "type": "string"
+      }
+    },
     "nodes": {
       "description": "An array of nodes running on this host",
       "type": "array",
