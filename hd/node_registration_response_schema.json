@@ -44,8 +44,6 @@
           }
         }
       }
-        }
-      
     },
     "nodes": {
       "description": "An array of nodes running on this host",
