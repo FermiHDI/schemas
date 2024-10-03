@@ -21,7 +21,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "https://github.com/FermiHDI/schemas/tree/main/hd/select_query.schema.json"
+                "$ref": "https://github.com/FermiHDI/schemas/tree/main/hd/select_query_schema.json"
               }
             }
           }

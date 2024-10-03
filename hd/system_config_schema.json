@@ -71,7 +71,15 @@
           "properties": {
             "nodeType": {
               "description": "The type of the node",
-              "type": "string"
+              "type": "string",
+              "enum": [
+                "STORAGE",
+                "STORAGE_CLUSTER_CONTROLLER",
+                "INGEST",
+                "DATA_PROCESSOR",
+                "QUERY_PARSER",
+                "QUERY_PARSER_FOUNDATION_NETWORK_GRAPHQL"
+              ]
             },
             "id": {
               "description": "A UID unique identifier for the node",
@@ -86,7 +94,7 @@
               "type": "string"
             },
             "storageCluster": {
-              "description": "The logical storage cluster this node is part of (Only applies to SCC and SN nodes)",
+              "description": "The logical storage cluster this node is part of (Only applies to SCC, SN, and IN nodes)",
               "type": "string"
             },
             "drives": {

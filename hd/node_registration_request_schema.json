@@ -5,30 +5,38 @@
   "description": "The JSON Schema for the request a new node must use to register with a DMS",
   "type": "object",
   "properties": {
-    "id": {
-      "description": "The unique id of the node, should be set by an environment variable",
-      "type": "string"
-    },
-    "nodeType": {
-      "description": "The type of node, should be set by an environment variable",
-      "type": "string",
-      "enum": ["INGEST", "SSC", "SN", "DP", "QP", "DMS"]
-    },
-    "address": {
-      "description": "The IP/FQDN address of the node",
-      "type": "string"
-    },
-    "publicKeyAlgorithm": {
-      "description": "The type of the public key for this node, should be set by an environment variable",
-      "type": "string"
-    },
-    "publicKey": {
-      "description": "The public key for the node",
-      "type": "string"
-    },
-    "keyFingerprint": {
-      "description": "The fingerprint for the nodes private key",
-      "type": "string"
+    "nodes": {
+      "description": "An array of nodes running on this host",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "The unique id of the node, should be set by an environment variable",
+            "type": "string"
+          },
+          "nodeType": {
+            "description": "The type of node, should be set by an environment variable",
+            "type": "string",
+            "enum": [
+              "STORAGE",
+              "STORAGE_CLUSTER_CONTROLLER",
+              "INGEST",
+              "DATA_PROCESSOR",
+              "QUERY_PARSER",
+              "QUERY_PARSER_FOUNDATION_NETWORK_GRAPHQL"
+            ]
+          },
+          "address": {
+            "description": "The IP/FQDN address of the node",
+            "type": "string"
+          },
+          "csr": {
+            "description": "The Certificate Signing Request for the node that is being registred",
+            "type": "string"
+          }
+        }
+      }
     }
   }
 }

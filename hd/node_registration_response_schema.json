@@ -6,7 +6,7 @@
   "type": "object",
   "properties": {
     "nodes": {
-      "description": "An array of nodes this host should run",
+      "description": "An array of nodes running on this host",
       "type": "array",
       "items": {
         "type": "object",
@@ -15,37 +15,13 @@
             "description": "The unique id of the node",
             "type": "string"
           },
-          "nodeName": {
-            "description": "The name of the node",
-            "type": "string"
-          },
-          "nodeType": {
-            "description": "The type of the node",
-            "type": "string",
-            "enum": ["STORAGE", "STORAGE_CLUSTER_CONTROLLER", "INGEST", "DATA_PROCESSOR", "QUERY_PARSER", "QUERY_PARSER_FOUNDATION_NETWORK_GRAPHQL"]
-          },
-          "cmdPort": {
-            "description": "The command port for the node",
-            "type": "string"
-          },
-          "prodPort": {
-            "description": "The production port for the node",
-            "type": "string"
-          },
-          "storage_cluster": {
-            "description": "The storage cluster this node belongs to",
-            "type": "string"
-          },
-          "datasets": {
-            "description": "The production port for the node",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "x509Certificate": {
             "description": "A x.509 certificate for the node signed by the DMS with a FermiHDI HD signing key as the Root CA",
             "type": "string"
+          },
+          "systemConfig": {
+            "description": "A FermiHDI HD system configuration",
+            "$ref": "https://github.com/FermiHDI/schemas/tree/main/hd/system_config_schema.json"
           }
         }
       }
