@@ -115,11 +115,7 @@
                 "type": "string"
               },
               "signature": {
-                "description": "The HMAC of the license encrypted by the FermiHDI HD signing key",
-                "type": "string"
-              },
-              "dmsSignature": {
-                "description": "The HMAC signature signed by FermiHDI but using the client's DMS public key, for all elements except the licenseVerification at the same level",
+                "description": "The HMAC of this license without the 'dms' and 'licenseVerification' elements, stringified, and using the key referenced in this element",
                 "type": "string"
               }
             }

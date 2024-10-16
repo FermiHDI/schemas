@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://fermihdi.dev/schemas/license_request_response_schema.json",
+  "title": "FermiHDI License Request Reqponse Schema",
+  "description": "The JSON Schema description for the response to a successful request for a license from FermiHDI",
+  "type": "object",
+  "properties": {
+    "customerID": {
+      "description": "The Customer ID for the license being requested",
+      "type": "string"
+    },
+    "licenseID": {
+      "description": "The ID of the license being requested",
+      "type": "string"
+    },
+    "licenseFingerprint": {
+      "description": "The license HMAC fingerprint given by FermiHDI",
+      "type": "string"
+    },
+    "hd": {
+      "description": "Only one product per request",
+      "type": "object",
+      "properties": {
+        "licenseEncrypted": {
+          "description": "The Base64 encoded license encrypted using the Public Key included in the CSR",
+          "type": "string"
+        },
+        "dmsCRT": {
+          "description": "The Base64 encoded PEM formated signed Certificate for the FermiHDI HD DMS assocated with this license",
+          "type": "string"
+        }
+      }
+    }
+  },
+  "required": ["customerID", "licenseID", "licenseFingerprint"]
+}
