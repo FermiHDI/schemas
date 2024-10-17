@@ -88,16 +88,8 @@
                 "description": "The of ID such as hostname or IP address of the client's DMS for which this license was issued",
                 "type": "string"
               },
-              "publicKeyAlgorithm": {
-                "description": "The type of the public key for the client's DMS",
-                "type": "string"
-              },
               "publicKey": {
                 "description": "The public key for the client's DMS",
-                "type": "string"
-              },
-              "keyFingerprint": {
-                "description": "The fingerprint for the client's DMS private key",
                 "type": "string"
               }
             }
