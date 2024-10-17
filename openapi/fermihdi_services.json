@@ -36,11 +36,36 @@
         },
         "responses": {
           "200": {
-            "description": "Registration successful",
+            "description": "License request successful",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/licenseResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "License request error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "description": "The JSON Schema description for reporting an Error in license request",
+                  "type": "object",
+                  "properties": {
+                    "statusCode": {
+                      "description": "The HTTP error code",
+                      "type": "integer"
+                    },
+                    "error": {
+                      "description": "Type of the error",
+                      "type": "string"
+                    },
+                    "message": {
+                      "description": "The error message",
+                      "type": "string"
+                    }
+                  }
                 }
               }
             }
