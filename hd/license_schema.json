@@ -17,7 +17,8 @@
           "description": "The name of the client",
           "type": "string"
         }
-      }
+      },
+      "required": ["id", "name"]
     },
     "licenses": {
       "description": "A FermiHDI license object",
@@ -92,7 +93,8 @@
                 "description": "The x.509 Certificate issued to this client's DMS",
                 "type": "string"
               }
-            }
+            },
+            "required": ["id", "certificate"]
           },
           "licenseVerification": {
             "description": "License verification",
@@ -110,9 +112,20 @@
                 "description": "The Base64 encoded HMAC of this license without the 'licenses.dms' and 'licenses.licenseVerification' elements, stringified, and using the key referenced in this element",
                 "type": "string"
               }
-            }
+            },
+            "required": ["hashAlgorithm", "fingerprint", "signature"]
           }
-        }
+        },
+        "required": [
+          "versionNumber",
+          "serialNumber",
+          "licenseType",
+          "term",
+          "issue_date",
+          "validity_date",
+          "expire_date",
+          "elements"
+        ]
       }
     }
   }

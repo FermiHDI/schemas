@@ -14,7 +14,7 @@
       "type": "string"
     },
     "licenseFingerprint": {
-      "description": "The license HMAC fingerprint given by FermiHDI",
+      "description": "License's base64 encoded SHA-512 fingerprint less 'licenses.dms' and 'licenses.licenseVerification'",
       "type": "string"
     },
     "hd": {
