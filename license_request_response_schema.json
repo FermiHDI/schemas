@@ -25,6 +25,10 @@
           "description": "The Base64 encoded license encrypted using the Public Key included in the CSR",
           "type": "string"
         },
+        "nonce": {
+          "description": "The Base64 encoded nonce used in the encryption of the license",
+          "type": "string"
+        },
         "dmsCRT": {
           "description": "The Base64 encoded PEM formated signed Certificate for the FermiHDI HD DMS assocated with this license",
           "type": "string"

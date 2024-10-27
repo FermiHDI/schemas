@@ -88,8 +88,8 @@
                 "description": "The of ID such as hostname or IP address of the client's DMS for which this license was issued",
                 "type": "string"
               },
-              "publicKey": {
-                "description": "The public key for the client's DMS",
+              "certificate": {
+                "description": "The x.509 Certificate issued to this client's DMS",
                 "type": "string"
               }
             }
@@ -102,12 +102,12 @@
                 "description": "The hash Algorithm used",
                 "type": "string"
               },
-              "keyFingerprint": {
+              "Fingerprint": {
                 "description": "The fingerprint for the FermiHDI public key",
                 "type": "string"
               },
               "signature": {
-                "description": "The HMAC of this license without the 'dms' and 'licenseVerification' elements, stringified, and using the key referenced in this element",
+                "description": "The Base64 encoded HMAC of this license without the 'licenses.dms' and 'licenses.licenseVerification' elements, stringified, and using the key referenced in this element",
                 "type": "string"
               }
             }
