@@ -1,0 +1,21 @@
+{
+  "$id": "https://fermihdi.dev/openapi/error.json",
+  "title": "Error Response",
+  "description": "An error response",
+  "type": "object",
+  "properties": {
+    "statusCode": {
+      "description": "The HTTP error code",
+      "type": "integer"
+    },
+    "error": {
+      "description": "Type of the error",
+      "type": "string"
+    },
+    "message": {
+      "description": "The error message",
+      "type": "string"
+    }
+  },
+  "required": ["statusCode", "error", "message"]
+}
