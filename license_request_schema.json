@@ -1,6 +1,5 @@
 {
   "$id": "https://fermihdi.dev/schemas/license_request_schema.json",
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "FermiHDI License Request Schema",
   "description": "The JSON Schema description needed to request a license from FermiHDI",
   "type": "object",
