@@ -104,7 +104,7 @@
                 "description": "The hash Algorithm used",
                 "type": "string"
               },
-              "Fingerprint": {
+              "fingerprint": {
                 "description": "The fingerprint for the FermiHDI public key",
                 "type": "string"
               },
