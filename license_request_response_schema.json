@@ -4,8 +4,8 @@
   "description": "The JSON Schema description for the response to a successful request for a license from FermiHDI",
   "type": "object",
   "properties": {
-    "customerID": {
-      "description": "The Customer ID for the license being requested",
+    "clientID": {
+      "description": "The Client ID for the license being requested",
       "type": "string"
     },
     "licenseID": {
@@ -35,5 +35,5 @@
       }
     }
   },
-  "required": ["customerID", "licenseID", "licenseFingerprint"]
+  "required": ["clientID", "licenseID", "licenseFingerprint"]
 }
