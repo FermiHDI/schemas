@@ -14,8 +14,8 @@
       "minItems": 1,
       "items": {
         "type": "string",
-        "minLength": 64,
-        "maxLength": 64
+        "minLength": 128,
+        "maxLength": 128
       }
     },
     "sub_queries": {
@@ -24,11 +24,11 @@
       "items": {
         "type": "object",
         "properties": {
-          "equity_mask": {
+          "equality_mask": {
             "description": "A hex bytearray used as a mask for equity matches",
             "type": "string"
           },
-          "equity_match": {
+          "equality_match": {
             "description": "A hex bytearray used for matching in equity matches",
             "type": "string"
           },
@@ -58,7 +58,7 @@
                 "type": {
                   "description": "Select type",
                   "type": "string",
-                  "enum": ["equality", "grater", "less"]
+                  "enum": ["equality", "greater", "less"]
                 },
                 "signed": {
                   "description": "If integers, is it signed; 0 = unsigned, 1 = signed",
@@ -78,8 +78,8 @@
           }
         },
         "required": [
-          "equity_mask",
-          "equity_match",
+          "equality_mask",
+          "equality_match",
           "greater_mask",
           "greater_match",
           "less_mask",
@@ -89,7 +89,7 @@
       }
     },
     "targer_dps": {
-      "description": "Data Processors IPs",
+      "description": "Where selected records should be sent",
       "type": "array",
       "items": {
         "type": "integer"
