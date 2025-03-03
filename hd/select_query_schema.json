@@ -65,11 +65,11 @@
                   "type": "integer"
                 },
                 "starting_index": {
-                  "description": "index uint32 datatype - inclusive",
+                  "description": "index (inclusive) uint32 datatype",
                   "type": "integer"
                 },
                 "ending_index": {
-                  "description": "index uint32 datatype - inclusive",
+                  "description": "index (inclusive) uint32 datatype",
                   "type": "integer"
                 }
               },
