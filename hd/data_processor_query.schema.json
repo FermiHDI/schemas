@@ -71,11 +71,11 @@
                 ]
               },
               "return_starting_index": {
-                "description": "The first index in the return record this field will use",
+                "description": "The first index (inclusive) in the return record this field will use",
                 "type": "int"
               },
               "return_ending_index": {
-                "description": "The last index in the return record this field will use",
+                "description": "The last index (inclusive) in the return record this field will use",
                 "type": "int"
               }
             },
