@@ -25,11 +25,11 @@
         "type": "object",
         "properties": {
           "equality_mask": {
-            "description": "A hex bytearray used as a mask for equity matches",
+            "description": "A hex bytearray used as a mask for equality matches",
             "type": "string"
           },
           "equality_match": {
-            "description": "A hex bytearray used for matching in equity matches",
+            "description": "A hex bytearray used for matching in equality matches",
             "type": "string"
           },
           "greater_mask": {
