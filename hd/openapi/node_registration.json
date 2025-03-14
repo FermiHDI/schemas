@@ -4,11 +4,11 @@
     "title": "FermiHDI HD Node Management API",
     "summary": "API for managing FermiHDI HD nodes",
     "description": "This API provides endpoints for managing FermiHDI HD nodes, including registration, updating, and deletion.",
-    "termsOfService": "https://fermihdi.dev/products/hd/dms/terms-of-service",
+    "termsOfService": "https://fermihdi.io/products/hd/dms/terms-of-service",
     "contact": {
       "name": "FermiHDI HD Support Team",
       "url": "https://support.fermihdi.com",
-      "email": "support@fermihdi.dev"
+      "email": "support@fermihdi.com"
     },
     "license": {
       "name": "UNLICENSED"

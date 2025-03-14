@@ -1,6 +1,6 @@
 {
+  "$id": "https://schemas.fermihdi.io/hd/node_registration_response_schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://fermihdi.dev/schemas/hd/node_registration_response_schema.json",
   "title": "FermiHDI HD Node successful response",
   "description": "The JSON Schema for a successful registration for a new node with a DMS",
   "type": "object",
@@ -12,15 +12,15 @@
         "registration": {
           "type": "array",
           "items": {
-            "discription": "An address for the DMS Node",
+            "description": "An address for the DMS Node",
             "type": "object",
             "properties": {
               "address": {
-                "discription": "The address for the DMS node",
+                "description": "The address for the DMS node",
                 "type": "string"
               },
               "port": {
-                "discription": "The TCP Port for the DMS node",
+                "description": "The TCP Port for the DMS node",
                 "type": "integer"
               }
             }
@@ -29,15 +29,15 @@
         "otel": {
           "type": "array",
           "items": {
-            "discription": "An address for a OTEL Collector Node",
+            "description": "An address for a OTEL Collector Node",
             "type": "object",
             "properties": {
               "address": {
-                "discription": "The address for the OTEL Collector node",
+                "description": "The address for the OTEL Collector node",
                 "type": "string"
               },
               "port": {
-                "discription": "The TCP Port for the OTEL Collector node",
+                "description": "The TCP Port for the OTEL Collector node",
                 "type": "integer"
               }
             }

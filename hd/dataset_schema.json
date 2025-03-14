@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "$id": "https://fermihdi.dev/schemas/hd/dataset_schema.json",
+    "$id": "https://schemas.fermihdi.io/hd/dataset_schema.json",
     "title": "FermiHDI HD Dataset Schema",
     "description": "The JSON Schema description for a datasets held in a FermiHDI HD system",
     "type": "object",
@@ -46,11 +46,11 @@
                     "type": "string"
                   },
                   "first_byte_position": {
-                    "description": "The inclusive first index in a record bytearray used by this fields data",
+                    "description": "The first index (inclusive) in a record bytearray used by this fields data",
                     "type": "integer"
                   },
                   "last_byte_position": {
-                    "description": "The exclusive last index in a record bytearray used by this fields data, this is needed for strings and is equivalent to a VARCHAR(n) or CHAR(n)",
+                    "description": "The last index (exclusive - Up to but not including: eg. a ending index of 4 and starting index of 0 would result in the indexes 0, 1, 2, and 3 being used) in a record bytearray used by this fields data",
                     "type": "integer"
                   }
                 },

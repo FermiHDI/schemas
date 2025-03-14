@@ -1,5 +1,5 @@
 {
-  "$id": "https://fermihdi.dev/schemas/license_request_schema.json",
+  "$id": "https://schemas.fermihdi.io/license_request_schema.json",
   "title": "FermiHDI License Request Schema",
   "description": "The JSON Schema description needed to request a license from FermiHDI",
   "type": "object",
@@ -21,7 +21,7 @@
       "type": "object",
       "properties": {
         "dmsCSR": {
-          "description": "The Base64 encoded PEM formated Certificate Signing Request for the FermiHDI HD DMS assocated with this license; Note that the Public Key included in the CSR will be used to encrypt the license.",
+          "description": "The Base64 encoded PEM formatted Certificate Signing Request for the FermiHDI HD DMS associated with this license; Note that the Public Key included in the CSR will be used to encrypt the license.",
           "type": "string"
         }
       }

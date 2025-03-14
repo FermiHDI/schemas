@@ -1,6 +1,6 @@
 {
-  "$id": "https://fermihdi.dev/schemas/license_request_response_schema.json",
-  "title": "FermiHDI License Request Reqponse Schema",
+  "$id": "https://schemas.fermihdi.io/license_request_response_schema.json",
+  "title": "FermiHDI License Request Response Schema",
   "description": "The JSON Schema description for the response to a successful request for a license from FermiHDI",
   "type": "object",
   "properties": {
@@ -29,7 +29,7 @@
           "type": "string"
         },
         "dmsCRT": {
-          "description": "The Base64 encoded PEM formated signed Certificate for the FermiHDI HD DMS assocated with this license",
+          "description": "The Base64 encoded PEM formatted signed Certificate for the FermiHDI HD DMS associated with this license",
           "type": "string"
         }
       }

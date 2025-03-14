@@ -14,13 +14,13 @@
     "/aggregate": {
       "post": {
         "summary": "Create Aggregation query in Data Processor node",
-        "description": "Agregagtion query for specifics batches",
+        "description": "Aggregation query for specifics batches",
         "requestBody": {
-          "description": "Agragtion query type",
+          "description": "Aggregation query type",
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "https://github.com/FermiHDI/schemas/tree/main/hd/data_processor_query.schema.json"
+                "$ref": "https://schemas.fermihdi.io/hd/data_processor_query.schema.json"
               }
             }
           }

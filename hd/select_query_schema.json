@@ -1,5 +1,5 @@
 {
-  "$id": "https://github.com/FermiHDI/schemas/tree/main/hd/select_query.schema.json",
+  "$id": "https://schemas.fermihdi.io/hd/select_query.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "FermiHDI HD Select Query Schema",
   "type": "object",
@@ -69,7 +69,7 @@
                   "type": "integer"
                 },
                 "ending_index": {
-                  "description": "index (inclusive) uint32 datatype",
+                  "description": "index (exclusive - Up to but not including: eg. a ending index of 4 and starting index of 0 would result in the indexes 0, 1, 2, and 3 being used) uint32 datatype",
                   "type": "integer"
                 }
               },
@@ -88,7 +88,7 @@
         ]
       }
     },
-    "targer_dps": {
+    "target_dps": {
       "description": "Where selected records should be sent",
       "type": "array",
       "items": {
@@ -96,5 +96,5 @@
       }
     }
   },
-  "required": ["query_id", "batch_ids", "sub_queries", "targer_dps"]
+  "required": ["query_id", "batch_ids", "sub_queries", "target_dps"]
 }

@@ -8,7 +8,7 @@
     "contact": {
       "name": "FermiHDI HD Support Team",
       "url": "https://support.fermihdi.com",
-      "email": "support@fermihdi.dev"
+      "email": "support@fermihdi.com"
     },
     "license": {
       "name": "UNLICENSED"
@@ -21,7 +21,7 @@
     "/api/v1/license": {
       "post": {
         "summary": "Get License",
-        "description": "This endpoint retrives a client license and any required data or files",
+        "description": "This endpoint retrieves a client license and any required data or files",
         "requestBody": {
           "description": "License Request",
           "content": {
@@ -92,13 +92,13 @@
       "licenseRequest": {
         "externalDocs": {
           "description": "The JSON Schema for the request a license",
-          "url": "https://fermihdi.dev/schemas/license_request_schema.json"
+          "url": "https://schemas.fermihdi.io/license_request_schema.json"
         }
       },
       "licenseResponse": {
         "externalDocs": {
           "description": "The JSON Schema for a successful license request",
-          "url": "https://fermihdi.dev/schemas/license_request_response_schema.json"
+          "url": "https://schemas.fermihdi.io/license_request_response_schema.json"
         }
       }
     }

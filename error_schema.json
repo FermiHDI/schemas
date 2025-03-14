@@ -1,5 +1,5 @@
 {
-  "$id": "https://fermihdi.dev/schemas/error.json",
+  "$id": "https://schemas.fermihdi.io/error.json",
   "title": "Error Response",
   "description": "An error response",
   "type": "object",

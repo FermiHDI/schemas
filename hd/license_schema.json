@@ -1,6 +1,6 @@
 {
+  "$id": "https://schemas.fermihdi.io/hd/license_schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://fermihdi.dev/schemas/hd/license_schema.json",
   "title": "FermiHDI HD License Schema",
   "description": "Schema for a FermiHDI HD License File",
   "type": "object",
