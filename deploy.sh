@@ -2,36 +2,22 @@
 
 echo "Deploying JSON Schemas to Object Store"
 
-for file in ./*.json; do
-  if [ -f "$file" ]; then
-    echo "Deploying ./${file}..."
-    s3cmd del s3://fermihdi-schemas/${file}
-    s3cmd put ./${file} s3://fermihdi-schemas/${file}
-    s3cmd setacl s3://fermihdi-schemas/${file} --acl-public
-done
+function deploy {
+  local directory=$1
+  for file in "${1}"*.json; do
+    if [ -f "$file" ]; then
+      file2=${file#"./"}
+      echo "Deploying ./${file2}..."
+      s3cmd del s3://fermihdi-schemas/${file2}
+      s3cmd put ./${file2} s3://fermihdi-schemas/${file2}
+      s3cmd setacl s3://fermihdi-schemas/${file2} --acl-public
+    fi
+  done
+}
 
-for file in ./hd/*.json; do
-  if [ -f "$file" ]; then
-    echo "Deploying ./hd/${file}..."
-    s3cmd del s3://fermihdi-schemas/hd/${file}
-    s3cmd put ./${file} s3://fermihdi-schemas/hd/${file}
-    s3cmd setacl s3://fermihdi-schemas/hd/${file} --acl-public
-done
-
-for file in ./hd/openapi/*.json; do
-  if [ -f "$file" ]; then
-    echo "Deploying ./hd/openapi/${file}..."
-    s3cmd del s3://fermihdi-schemas/hd/openapi/${file}
-    s3cmd put ./${file} s3://fermihdi-schemas/hd/openapi/${file}
-    s3cmd setacl s3://fermihdi-schemas/hd/openapi/${file} --acl-public
-done
-
-for file in ./openapi/*.json; do
-  if [ -f "$file" ]; then
-    echo "Deploying ./openapi/${file}..."
-    s3cmd del s3://fermihdi-schemas/openapi/${file}
-    s3cmd put ./${file} s3://fermihdi-schemas/openapi/${file}
-    s3cmd setacl s3://fermihdi-schemas/openapi/${file} --acl-public
-done
+deploy "./"
+deploy "./hd/"
+deploy "./hd/openapi/"
+deploy "./openapi/"
 
 echo "JSON Schemas deployed successfully!"
