@@ -27,8 +27,14 @@
           }
         },
         "responses": {
-          "201": {
-            "description": "OK"
+          "200": {
+            "description": "Query was received, validated, abd Batch was found in this cluster"
+          },
+          "204": {
+            "description": "Query was received, validated, but Batch was not found in this cluster"
+          },
+          "400": {
+            "description": "Query was received, but failed to be validated"
           },
           "default": {
             "description": "Unexpected error"
