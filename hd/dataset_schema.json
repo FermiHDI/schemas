@@ -2,7 +2,7 @@
     "$schema": "https://json-schema.org/draft/2020-12/schema",
     "$id": "https://schemas.fermihdi.io/hd/dataset_schema.json",
     "title": "FermiHDI HD Dataset Schema",
-    "description": "The JSON Schema description for a datasets held in a FermiHDI HD system",
+    "description": "The JSON Schema description for a dataset held in a FermiHDI HD system",
     "type": "object",
     "properties": {
       "datasets": {
@@ -24,8 +24,71 @@
               "type": "string"
             },
             "record_len": {
-              "description": "Records are stored as a concatenate byte arrays, the fields is the number of bytes in a record",
+              "description": "Records are stored as a concatenated byte arrays, the fields is the number of bytes in a record",
               "type": "integer"
+            },
+            "dataset_type": {
+                "description": "The type of the dataset",
+                "type": "string",
+                "enum": [
+                    "time_series",
+                    "other"
+                ]
+            },
+            "time_index_intervale": {
+                "description": "The interval in seconds for generating time-based batch IDs",
+                "type": "integer"
+            },                    
+            "compressed_time_fields": {
+                "description": "An Array of time fields in the dataset which are time compressed; Note: time compression is based on the use of a unix timestamp at second level accuracy and that the time fields are deltas from that batch_id.",
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "description": "Time field name",
+                            "type": "string"
+                        },
+                        "time_compression": {
+                            "description": "If there is time compression, what is the level - This assumes that the batch_id id a Unix Timestamp at second level accuracy and that the time fields are deltas from that batch_id.",
+                            "type": "string",
+                            "enum": [
+                                "none",
+                                "minutes",
+                                "seconds",
+                                "milliseconds",
+                                "nanoseconds"
+                            ]
+                        }
+                    },
+                    "required": ["name"]
+                }
+            },
+            "storage_query_targets":{
+                "description": "An Array of HD storage cluster controller IP addresses or gateways",
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "address": {
+                            "description": "The IP address or gateway of the HD storage cluster controller",
+                            "type": "string"
+                        },
+                        "port": {
+                            "description": "The port number of the HD storage cluster controller",
+                            "type": "integer"
+                        },
+                        "description": {
+                            "description": "Description of the storage cluster controller",
+                            "type": "string"
+                        }
+                    },
+                    "required": [
+                        "address",
+                        "port"
+                    ]
+                },
+                "minItems": 1
             },
             "fields": {
               "type": "array",
@@ -33,7 +96,7 @@
                 "type": "object",
                 "properties": {
                   "name": {
-                    "description": "Fields name",
+                    "description": "Field name",
                     "type": "string"
                   },
                   "type": {
@@ -46,11 +109,11 @@
                     "type": "string"
                   },
                   "first_byte_position": {
-                    "description": "The first index (inclusive) in a record bytearray used by this fields data",
+                    "description": "The first index (inclusive) in a record bytearray used by this field's data",
                     "type": "integer"
                   },
                   "last_byte_position": {
-                    "description": "The last index (exclusive - Up to but not including: eg. a ending index of 4 and starting index of 0 would result in the indexes 0, 1, 2, and 3 being used) in a record bytearray used by this fields data",
+                    "description": "The last index (exclusive - Up to but not including: eg. a ending index of 4 and starting index of 0 would result in the indexes 0, 1, 2, and 3 being used) in a record bytearray used by this field's data",
                     "type": "integer"
                   }
                 },
