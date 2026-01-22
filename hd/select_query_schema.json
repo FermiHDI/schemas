@@ -33,11 +33,11 @@
             "type": "string"
           },
           "greater_mask": {
-            "description": "A hex bytearray used as a mask for grater matches",
+            "description": "A hex bytearray used as a mask for greater matches",
             "type": "string"
           },
           "greater_match": {
-            "description": "A hex bytearray used for matching in grater matches",
+            "description": "A hex bytearray used for matching in greater matches",
             "type": "string"
           },
           "less_mask": {
