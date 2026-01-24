@@ -39,7 +39,7 @@
                 "description": "The name of the field in the dataset that should be used as the batch_id; Note: unless also included belowthis field will not be included in the record"
                 "type": "string"
             },
-            "time_index_intervale": {
+            "time_index_interval": {
                 "description": "The interval in seconds for generating time-based batch IDs",
                 "type": "integer"
             },                    
