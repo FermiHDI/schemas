@@ -24,7 +24,7 @@
               "type": "string"
             },
             "record_len": {
-              "description": "Records are stored as a concatenated byte arrays, the fields are the number of bytes in a record",
+              "description": "Records are stored as a concatenated byte array, the fields are the number of bytes in a record",
               "type": "integer"
             },
             "dataset_type": {
@@ -40,7 +40,7 @@
                 "type": "string"
             },
             "time_index_field": {
-                "description": "The name of the field in the dataset that is a timestamp used for indexing the records"
+                "description": "The name of the field in the dataset that is a timestamp used for indexing the records",
                 "type": "integer"
             },
             "time_index_interval": {
