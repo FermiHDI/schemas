@@ -36,8 +36,29 @@
                 ]
             },
             "batch_id_field": {
-                "description": "The name of the field in the dataset that should be used as the batch_id; Note: unless also included belowthis field will not be included in the record"
-                "type": "string"
+                "description": "Optional - Defines a field used for hashing (batch_id) that should be used on ingest; Note: unless this field is spcifed in the fields section it will not be included in resulting record.",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "description": "The name of the field in the dataset that should be used as the batch_id; Note: unless also included belowthis field will not be included in the record",
+                        "type": "string"
+                    },
+                    "field_type": {
+                        "description": "Var type",
+                        "type": "string",
+                        "enum": [
+                            "string",
+                            "integer",
+                            "float",
+                            "double",
+                            "boolean"
+                        ]
+                    }
+                },
+                "required": [
+                    "name",
+                    "field_type"
+                ]
             },
             "time_index_field": {
                 "description": "The name of the field in the dataset that is a timestamp used for indexing the records",
