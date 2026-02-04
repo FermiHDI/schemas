@@ -71,7 +71,8 @@
                     "HDSN",
                     "HDDP",
                     "HDQP",
-                    "HDDMS"
+                    "HDDMS",
+                    "HDPROXY"
                   ]
                 },
                 "count": {
